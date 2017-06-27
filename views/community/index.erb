@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li class="active">家宽信息查询</li>
+    </ol>
+  </div>
+  <!-- /.col-lg-12 -->
+
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p class="text-danger">将目前家庭宽带业务的数据放在这里做展现</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-home fa-fw"></i>
+        小区概览
+        <div class="pull-right">
+          <div class="btn-group">
+            <input type="text" class="form-control input-sm" style="margin-top:-5px;" id='keyword' name='keyword' placeholder="输入小区名称进行查询......">
+          </div>
+        </div>
+      </div>
+      <div id="community_map" style="min-height:600px"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  var marker;
+
+  var map = new AMap.Map('community_map', {
+    resizeEnable: true,
+    zoom: 14,
+    mapStyle: 'amap://styles/whitesmoke',
+    center: [102.245525, 27.881075]
+  });
+
+  AMapUI.loadUI(['overlay/AwesomeMarker'], function (AwesomeMarker) {
+    marker = new AwesomeMarker({
+      //设置awesomeIcon
+      awesomeIcon: 'building-o',
+      iconLabel: {
+        style: {
+          color: '#333',
+          fontSize: '14px'
+        }
+      },
+      iconStyle: 'blue',
+      map: map,
+      position: [
+        102.25548, 27.890265
+      ],
+      title: '攀西花园'
+    });
+
+    AMap.event.addListener(marker, 'click', function () {
+      window.location.href = "/community/detail";
+    });
+  });
+
+  //鼠标点击marker弹出自定义的信息窗体
+</script>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>通信运营商统一运维管理平台</title>
+    <title>OneRIM平台</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,9 +20,6 @@
     <!-- Custom CSS -->
     <link href="/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="/morrisjs/morris.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -32,6 +29,32 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- jQuery -->
+    <script src="/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/sb-admin-2.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="/datatables-responsive/dataTables.responsive.js"></script>
+
+    <!-- 高德地图 JavaScript -->
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=fa674de959de55533895fe16ae39464f"></script>
+    <script src="//webapi.amap.com/ui/1.0/main.js"></script>
+
+    <!-- ECharts JavaScript -->
+    <script src="/echarts/echarts.common.min.js"></script>
+
 
   </head>
 
@@ -48,7 +71,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">通信运营商统一运维管理平台</a>
+          <a class="navbar-brand" href="index.html">OneRIM平台</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -267,9 +290,9 @@
             <ul class="nav" id="side-menu">
               <li class="sidebar-search">
                 <div class="input-group custom-search-form">
-                  <input type="text" class="form-control" placeholder="Search...">
+                  <input type="text" class="form-control" placeholder="搜索...">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
+                    <button class="btn btn-default" type="button" onclick="window.location.href='/search'">
                       <i class="fa fa-search"></i>
                     </button>
                   </span>
@@ -277,88 +300,100 @@
                 <!-- /input-group -->
               </li>
               <li>
-                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 主页面</a>
               </li>
               <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-home fa-fw"></i> 家宽信息管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="flot.html">Flot Charts</a>
+                    <a href="/community">&#8727; 家宽信息查询</a>
                   </li>
                   <li>
-                    <a href="morris.html">Morris.js Charts</a>
+                    <a href="/community/stat">&#8727; 家宽信息统计</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
               <li>
-                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-              </li>
-              <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-building-o fa-fw"></i> 企业专线信息管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="panels-wells.html">Panels and Wells</a>
+                    <a href="／community">&#8727; 企业用户信息查询</a>
                   </li>
                   <li>
-                    <a href="buttons.html">Buttons</a>
-                  </li>
-                  <li>
-                    <a href="notifications.html">Notifications</a>
-                  </li>
-                  <li>
-                    <a href="typography.html">Typography</a>
-                  </li>
-                  <li>
-                    <a href="icons.html"> Icons</a>
-                  </li>
-                  <li>
-                    <a href="grid.html">Grid</a>
+                    <a href="/community/stat">&#8727; 企业用户信息统计</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
               <li>
-                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-phone fa-fw"></i> 用户投诉管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="#">Second Level Item</a>
+                    <a href="／community">&#8727; 企业用户信息查询</a>
                   </li>
                   <li>
-                    <a href="#">Second Level Item</a>
-                  </li>
-                  <li>
-                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                    <ul class="nav nav-third-level">
-                      <li>
-                        <a href="#">Third Level Item</a>
-                      </li>
-                      <li>
-                        <a href="#">Third Level Item</a>
-                      </li>
-                      <li>
-                        <a href="#">Third Level Item</a>
-                      </li>
-                      <li>
-                        <a href="#">Third Level Item</a>
-                      </li>
-                    </ul>
-                    <!-- /.nav-third-level -->
+                    <a href="/community/stat">&#8727; 企业用户信息统计</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
               </li>
               <li>
-                <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-check-square-o fa-fw"></i> 运维过程管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                    <a href="blank.html">Blank Page</a>
+                    <a href="／community">&#8727; 企业用户信息查询</a>
                   </li>
                   <li>
-                    <a href="login.html">Login Page</a>
+                    <a href="/community/stat">&#8727; 企业用户信息统计</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-cubes fa-fw"></i> 哑资源信息管理<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="／community">&#8727; 根据业务反向查哑资源信息</a>
+                  </li>
+                  <li>
+                    <a href="／community">&#8727; 根据哑资源查询业务信息</a>
+                  </li>
+                  <li>
+                    <a href="／community">&#8727; 管道杆路网资源管理</a>
+                  </li>
+                  <li>
+                    <a href="／community">&#8727; 光缆网资源管理</a>
+                  </li>
+                  <li>
+                    <a href="／community">&#8727; 杆路资源管理</a>
+                  </li>
+                  <li>
+                    <a href="／community">&#8727; 机房资源管理</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 大数据分析<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="／community">&#8727; 企业用户信息查询</a>
+                  </li>
+                  <li>
+                    <a href="/community/stat">&#8727; 企业用户信息统计</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-street-view fa-fw"></i> 第三方人员信息管理<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="／community">&#8727; 企业用户信息查询</a>
+                  </li>
+                  <li>
+                    <a href="/community/stat">&#8727; 企业用户信息统计</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -370,7 +405,7 @@
         <!-- /.navbar-static-side -->
       </nav>
 
-      <div id="page-wrapper">
+      <div id="page-wrapper" style='padding-top: 15px;'>
         <%= yield %>
       </div>
       <!-- /#page-wrapper -->
@@ -378,24 +413,8 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="/raphael/raphael.min.js"></script>
-    <script src="/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="/js/sb-admin-2.js"></script>
 
   </body>
 
 </html>
-
