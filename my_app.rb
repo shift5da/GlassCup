@@ -10,7 +10,7 @@ set :show_exceptions, :after_handler if development?
 
 
 get '/' do
-  'Hello world!'
+  erb :'community/index'
 end
 
 
