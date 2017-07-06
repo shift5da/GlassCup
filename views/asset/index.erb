@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li class="active">资源信息管理</li>
+    </ol>
+  </div>
+  <!-- /.col-lg-12 -->
+
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-home fa-fw"></i>
+        资源信息
+        <div class="pull-right">
+          <div class="pull-right">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                操作
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                  <a href="#">打印</a>
+                </li>
+                <li>
+                  <a href="#">发送</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="map_asset_overview" style="min-height:700px;"></div>
+    </div>
+  </div>
+</div>
+
+<div id="tip">
+  <form class="form-inline">
+    <div class="form-group">
+      地区搜索
+      <input type="text" name="" value="" id='input_pos_query' onfocus='this.value=""' style="color: #333">
+    </div>
+    <div class="form-group">
+      区域选择
+      <select id='district' style="width:100px" onchange='search(this)' style="color: #333"></select>
+    </div>
+    <div class="form-group">
+      <input type="checkbox" value="1" checked>
+      光交箱
+    </div>
+    <div class="form-group">
+      <input type="checkbox" value="1" checked>
+      人井
+    </div>
+    <div class="form-group">
+      <input type="checkbox" value="1">
+      光缆
+    </div>
+  </form>
+</div>
+
+
+
+<script src="/js/pages/asset/index.js" charset="utf-8"></script>
+<link rel="stylesheet" href="/css/pages/asset/index.css">

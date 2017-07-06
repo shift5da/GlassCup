@@ -35,6 +35,23 @@ end
 # 登录页面路由    ---------------   结束  ----------------
 
 
+# 资产管理页面    ---------------   开始  ----------------
+
+get '/asset' do
+  erb :'asset/index'
+end
+
+get '/asset/occs/:id' do
+  erb :'asset/occ'
+end
+
+get '/asset/manholes/:id' do
+  erb :'asset/manhole'
+end
+
+# 资产管理页面    ---------------   结束  ----------------
+
+
 # 小区信息查询页面    ---------------   开始  ----------------
 
 
