@@ -29,10 +29,13 @@
         <a href="#occ_internal" data-toggle="tab">光交箱内部结构</a>
       </li>
       <li>
-        <a href="#occ_inspection" data-toggle="tab"  id='tab_inspection'>小区设备巡检记录</a>
+        <a href="#occ_topology" data-toggle="tab" id='tab_occ_topology'>光交箱网络拓扑</a>
       </li>
       <li>
-        <a href="#occ_construction" data-toggle="tab"  id='tab_construction'>小区施工记录</a>
+        <a href="#occ_inspection" data-toggle="tab"  id='tab_occ_inspection'>光交箱巡检记录</a>
+      </li>
+      <li>
+        <a href="#occ_construction" data-toggle="tab"  id='tab_construction'>光交箱施工记录</a>
       </li>
     </ul>
 
@@ -44,11 +47,14 @@
       <div class="tab-pane fade" id="occ_internal">
         <%= erb :'asset/_occ_internal'%>
       </div>
+      <div class="tab-pane fade" id="occ_topology">
+        <%= erb :'asset/_occ_topology'%>
+      </div>
       <div class="tab-pane fade" id="occ_inspection">
-        <%= erb :'community/_device'%>
+        <%= erb :'asset/_occ_inspection'%>
       </div>
       <div class="tab-pane fade" id="occ_construction">
-        <%= erb :'community/_internet_behavior_analysis'%>
+        <%= erb :'asset/_occ_construction'%>
       </div>
     </div>
   </div>
