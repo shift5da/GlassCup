@@ -1,31 +1,67 @@
-<div class="row">
-  <div class="col-lg-12">
-    <ol class="breadcrumb">
-      <li class="active">家宽信息查询</li>
-    </ol>
-  </div>
-  <!-- /.col-lg-12 -->
-
-  <div class="col-lg-12">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p class="text-danger">将目前家庭宽带业务的数据放在这里做展现</p>
+<!-- START Sub-Navbar with Header and Breadcrumbs-->
+<div class="sub-navbar sub-navbar__header-breadcrumbs">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 sub-navbar-column">
+        <div class="sub-navbar-header">
+          <h3>家宽信息</h3>
+        </div>
+        <ol class="breadcrumb navbar-text navbar-right no-bg">
+          <li class="current-parent">
+            <a class="current-parent" href="/community/index">
+              <i class="fa fa-fw fa-home"></i>
+            </a>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="col-lg-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <i class="fa fa-home fa-fw"></i>
-        小区概览
-        <div class="pull-right">
-          <div class="btn-group">
-            <input type="text" class="form-control input-sm" style="margin-top:-5px;" id='keyword' name='keyword' placeholder="输入小区名称进行查询......">
+<!-- END Sub-Navbar with Header and Breadcrumbs-->
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading b-b-warning b-b-2">
+
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Options">
+              <i class="fa fa-fw  fa-gear"></i>
+            </button>
+            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Fullscreen">
+              <i class="fa fa-fw  fa-expand"></i>
+            </button>
+            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Refresh">
+              <i class="fa fa-fw  fa-refresh"></i>
+            </button>
+            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Show/Hide">
+              <i class="fa fa-fw  fa-chevron-up"></i>
+            </button>
+            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Close">
+              <i class="fa fa-fw  fa-close"></i>
+            </button>
           </div>
+          <div class="col-lg-2 pull-right">
+            <div class="input-group input-group-sm">
+              <input type="text" class="form-control" placeholder="输入小区的名称查询......">
+              <span class="input-group-btn">
+                <button class="btn btn-sm btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+            <!-- /input-group -->
+          </div>
+          <h3 class="panel-title">小区概览</h3>
+        </div>
+        <div class="panel-body">
+          <div id="community_map" style="min-height:700px"></div>
         </div>
       </div>
-      <div id="community_map" style="min-height:600px"></div>
+
     </div>
   </div>
 </div>
@@ -37,8 +73,8 @@
   var map = new AMap.Map('community_map', {
     resizeEnable: true,
     zoom: 14,
-    mapStyle: 'amap://styles/whitesmoke',
-    center: [102.245525, 27.881075]
+    mapStyle: 'amap://styles/grey',
+    center: [121.499859,31.23966]
   });
 
   AMapUI.loadUI(['overlay/AwesomeMarker'], function (AwesomeMarker) {
