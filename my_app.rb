@@ -12,6 +12,7 @@ set :show_exceptions, :after_handler if development?
 set :database, {adapter: "sqlite3", database: "GlassCup.sqlite3"}
 
 enable :sessions
+set :session_secret, "My session secret"
 
 
 # -----------------------------------------------
@@ -29,12 +30,12 @@ end
 
 
 get '/' do
-  session['current_menu'] = 'community'
+  session[:current_menu] = 'community'
   erb :'community/index'
 end
 
 get '/dashboard' do
-  session['current_menu'] = 'dashboard'
+  session[:current_menu] = 'dashboard'
   erb :'dashboard/index', :layout => :layout_blank
 end
 
@@ -51,19 +52,19 @@ end
 
 # 领导的欢迎页面
 get '/welcome/manager' do
-  session['current_menu'] = 'home'
+  session[:current_menu] = 'home'
   erb :'welcome/manager'
 end
 
 # 运营商管理人员的欢迎页面
 get '/welcome/staff' do
-  session['current_menu'] = 'home'
+  session[:current_menu] = 'home'
   erb :'welcome/staff'
 end
 
 # 代维人员的欢迎页面
 get '/welcome/operator' do
-  session['current_menu'] = 'home'
+  session[:current_menu] = 'home'
   erb :'welcome/operator'
 end
 
@@ -74,6 +75,7 @@ end
 # 资产管理页面    ---------------   开始  ----------------
 
 get '/asset' do
+  session[:current_menu] = 'asset'
   erb :'asset/index'
 end
 
@@ -85,6 +87,14 @@ get '/asset/manholes/:id' do
   erb :'asset/manhole'
 end
 
+get '/asset/status-monitor' do
+  erb :'asset/status_monitor'
+end
+
+get '/asset/map' do
+  erb :'asset/map'
+end
+
 # 资产管理页面    ---------------   结束  ----------------
 
 
@@ -92,6 +102,7 @@ end
 
 
 get '/community' do
+  session[:current_menu] = 'community'
   erb :'community/index'
 end
 
@@ -103,9 +114,38 @@ end
 # 小区信息查询页面    ---------------   结束  ----------------
 
 
+
+# 家宽业务    ---------------   开始  ----------------
+
+get '/broadband-family' do
+  session[:current_menu] = 'broadband-family'
+  erb :'broadband-family/index'
+end
+
+get '/broadband-family/map' do
+  erb :'broadband-family/map'
+end
+
+get '/broadband-family/utilization' do
+  erb :'broadband-family/utilization'
+end
+
+get '/broadband-family/family-detail' do
+  erb :'broadband-family/family-detail'
+end
+
+get '/broadband-family/community-detail' do
+  erb :'broadband-family/community-detail'
+end
+
+# 家宽业务    ---------------   结束  ----------------
+
+
+
 # 全平台信息检索    ---------------   开始  ----------------
 
 get '/search' do
+  session[:current_menu] = 'search'
   erb :'search/index'
 end
 

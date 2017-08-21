@@ -70,8 +70,8 @@ $(function() {
             },
             xAxis: {
                 gridLineWidth: 1,
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                categories: ['一月', '二月', '三月', '四月', '五月', '六月',
+                '七月', '八月', '九月', '十月', '十一月', '十二月']
             },
             credits: {
                 enabled: false
@@ -91,7 +91,7 @@ $(function() {
                 }]
             },
             tooltip: {
-                valueSuffix: '°C'
+                valueSuffix: '%'
             },
             legend: {
                 layout: 'horizontal',
@@ -100,16 +100,16 @@ $(function() {
                 borderWidth: 0
             },
             series: [{
-                name: 'Total Count',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 13.5, 23.3, 18.3, 13.9, 9.6],
+                name: '增长率',
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2],
                 color: '#2D99DC',
                 lineWidth: '1',
                 marker: {
                     symbol: 'circle',
                 }
             }, {
-                name: 'Average Count',
-                data: [-0.2, 14, 5.7, 2, 22.0, 19.0, 22.8, 23.1, 27.1, 14.1, 8.6, 16.5],
+                name: '平均增长率',
+                data: [-0.2, 14, 5.7, 2, 22.0, 19.0, 22.8],
                 color: '#CB3E4B',
                 lineWidth: '1',
                 marker: {
@@ -869,7 +869,7 @@ $(function() {
             },
 
             xAxis: {
-                categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','Sun'],
+                categories: ['周一', '周二', '周三', '周四', '周五', '周六','周日'],
                 tickmarkPlacement: 'on',
                 title: {
                     enabled: false
@@ -879,15 +879,16 @@ $(function() {
                 title: {
                     text: ''
                 },
+                max: 100,
                 labels: {
                     formatter: function () {
-                        return this.value / 1000;
+                        return this.value;
                     }
                 }
             },
             tooltip: {
                 shared: true,
-                valueSuffix: ' millions'
+                valueSuffix: ' %'
             },
             plotOptions: {
                 area: {
@@ -901,27 +902,11 @@ $(function() {
                 }
             },
             series: [{
-                name: 'Asia',
-                data: [502, 900, 809, 947, 1402, 3634, 5268],
+                name: '带宽日平均占比',
+                data: [86,82,83,80,90,96,96],
                  color: '#222D34',
                 lineColor: '#2E9BDA',
                  marker: {
-                    enabled: false
-                }
-            }, {
-                name: 'Africa',
-                data: [106, 1708, 890, 500, 490, 767, 1766],
-                   marker: {
-                    enabled: false
-                },
-                 color: '#263C40',
-                lineColor: '#3BBDA8'
-            }, {
-                name: 'Europe',
-                data: [163, 800, 276, 300, 159, 729, 628],
-                color: '#383838',
-                lineColor: '#787878',
-                   marker: {
                     enabled: false
                 }
             }]
@@ -1585,18 +1570,19 @@ $(function() {
             },
             xAxis: {
                 categories: [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
+                    '周一',
+                    '周二',
+                    '周三',
+                    '周四',
+                    '周五',
+                    '周六',
+                    '周日',
                 ],
                 crosshair: true
             },
             yAxis: {
                 min: 0,
+                max: 100,
                 title: {
                     text: ''
                 }
@@ -1613,7 +1599,7 @@ $(function() {
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true
@@ -1625,8 +1611,8 @@ $(function() {
                 }
             },
             series: [{
-                name: 'Tokyo',
-                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+                name: '带宽使用率',
+                data: [49.9, 71.5, 86.4, 76.2, 84.0, 76.0, 85.6]
 
             }   ]
         });
@@ -1709,13 +1695,13 @@ $(function() {
             },
             xAxis: {
                 categories: [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
+                    '周一',
+                    '周二',
+                    '周三',
+                    '周四',
+                    '周五',
+                    '周六',
+                    '周日',
                 ],
                 crosshair: true
             },
@@ -1749,8 +1735,8 @@ $(function() {
                 }
             },
             series: [{
-                name: 'Tokyo',
-                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6]
+                name: '上网时常',
+                data: [12.4,13.6,14.8,8.9,8.5,15.6,15.9]
 
             }   ]
         });
@@ -2556,19 +2542,24 @@ $(function() {
                 }
             },
             series: [{
-                name: 'Brands',
+                name: '占比',
                 colorByPoint: true,
                 data: [{
-                    name: 'IE',
-                    y: 56.33
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
+                    name: '游戏类',
+                    color: '#cb3e4b',
+                    y: 56,
                     sliced: true,
                     selected: true
                 }, {
-                    name: 'Firefox',
-                    y: 10.38,
+                    name: '直播类',
+                    y: 24,
+                    color: '#e66c40'
+                }, {
+                    name: '视频类',
+                    y: 12,
+                },{
+                    name: '其他',
+                    y: 8,
                     color: '#383838'
                 }]
             }]
