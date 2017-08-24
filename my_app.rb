@@ -23,6 +23,13 @@ class Occ < ActiveRecord::Base
 end
 
 
+# -----------------------------------------------
+# data
+# -----------------------------------------------
+
+$occ_data = [{:name=>'徐汇光交GJ101', :lng=>'121.441788',:lat=>'31.206199'},{:name=>'徐汇光交GJ102', :lng=>'121.44123',:lat=>'31.201757'},{:name=>'徐汇光交GJ103', :lng=>'121.437668',:lat=>'31.200436'}]
+$manhole_data = [{:name=>'徐汇人井RJ101', :lng=>'121.442045',:lat=>'31.205795'},{:name=>'徐汇人井RJ102', :lng=>'121.446551',:lat=>'31.201097'},{:name=>'徐汇人井RJ103', :lng=>'121.445135',:lat=>'31.200473'}]
+
 
 # -----------------------------------------------
 # controllers
@@ -76,6 +83,13 @@ end
 
 get '/asset' do
   session[:current_menu] = 'asset'
+  erb :'asset/index'
+end
+
+post '/asset/search' do
+  session[:current_menu] = 'asset'
+  key = params[:key]
+  @result = {type: 'occ'}.merge $occ_data[1]
   erb :'asset/index'
 end
 
