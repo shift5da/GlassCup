@@ -397,6 +397,13 @@
                 </a>
               </li>
 
+              <li class="<%= 'active' if session[:current_menu].eql? 'dashboard' %>">
+                <a href="/dashboard"  data-original-title="主页面" data-placement="right" data-toggle="tooltip">
+                  <i class="fa fa-dashboard fa-lg "></i>
+                  <span class="nav-label">资源状态监控</span>
+                </a>
+              </li>
+
               <li class="<%= 'active' if session[:current_menu].eql? 'broadband-family' %>">
                 <a href="/broadband-family" data-original-title="家宽业务" data-placement="right" data-toggle="tooltip">
                   <i class="fa fa-desktop fa-lg "></i>

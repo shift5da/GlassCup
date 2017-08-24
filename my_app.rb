@@ -37,13 +37,13 @@ $manhole_data = [{:name=>'徐汇人井RJ101', :lng=>'121.442045',:lat=>'31.20579
 
 
 get '/' do
-  session[:current_menu] = 'community'
-  erb :'community/index'
+  session[:current_menu] = 'home'
+  erb :'welcome/manager'
 end
 
 get '/dashboard' do
   session[:current_menu] = 'dashboard'
-  erb :'dashboard/index', :layout => :layout_blank
+  erb :'dashboard/index'
 end
 
 get '/dashboard/construction' do

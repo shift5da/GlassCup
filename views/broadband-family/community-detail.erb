@@ -18,7 +18,7 @@
             </a>
           </li>
           <li>
-            <a href="/broadband-family">
+            <a href="/broadband-family/map">
               地图模式
             </a>
           </li>
@@ -32,12 +32,9 @@
 
 <div class="container-fluid">
   <!-- START EDIT CONTENT -->
-
   <div class="row">
-
     <!-- START Navigation Tree & Search -->
     <div class="col-lg-3">
-
       <div class="hr-text hr-text-left m-t-0 m-b-1">
         <h6 class="text-white">
           <strong>基础信息</strong>
@@ -54,7 +51,7 @@
               小区名称
             </td>
             <td class="v-a-m b-t-0 text-right text-white">
-              <span>龙华小区</span>
+              <span>信联公寓</span>
             </td>
           </tr>
           <!-- END ROW Task Details  -->
@@ -87,7 +84,8 @@
               小区用户数
             </td>
             <td class="v-a-m text-right text-white">
-              896户
+              <a href="javascript:$('#myModal').modal('show');">896户</a>
+
             </td>
           </tr>
           <!-- END ROW Task Details  -->
@@ -140,10 +138,14 @@
             <div class="col-lg-4 col-md-4 col-sm-4">
               <div class="panel panel-default b-a-0 bg-gray-dark">
                 <div class="panel-heading">小区用户数
-                  <small class="pull-right text-gray-lighter">截止到2017年8月</small>
+                  <small class="pull-right text-gray-lighter">
+                    <a href="javascript:$('#myModal').modal('show');">详细</a>
+                  </small>
                 </div>
                 <div class="panel-body">
-                  <h2 class="m-t-0 f-w-300">865 户</h2>
+                  <h2 class="m-t-0 f-w-300">
+                    865 户
+                  </h2>
                   <i class="fa fa-fw fa-caret-up text-success"></i>
                   <span class="text-success m-r-1">13.87%</span>
                   <small>较去年新增</small>
@@ -374,49 +376,128 @@
 </div>
 
 <div class="row">
-
   <div class="col-lg-12">
     <div class="highstock-intraday-area"></div>
-
   </div>
-
-  <!-- END ROW Report Statisticts & Latest Transactions -->
-
 </div>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&#xD7;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">小区用户列表</h4>
+      </div>
+      <div class="modal-body" id='modal-body'>
+
+        <table id="datatables-example" class="display table">
+          <thead>
+            <tr>
+              <th class="text-white">地址</th>
+              <th class="text-white">开户名</th>
+              <th class="text-white">联系电话</th>
+              <th class="text-white">套餐</th>
+              <th class="text-white">周上网时长</th>
+              <th class="text-white">带宽利用率</th>
+              <th class="text-white"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-white">1单元101</td>
+              <td class="text-white">王雪勤</td>
+              <td class="text-white">15800779123</td>
+              <td class="text-white">128元包月，20M</td>
+              <td class="text-white">134小时</td>
+              <td class="text-white">56%</td>
+              <td class="text-white"><a href="/broadband-family/family-detail">详细</a></td>
+            </tr>
+            <tr>
+              <td class="text-white">1单元102</td>
+              <td class="text-white">刘明</td>
+              <td class="text-white">15800779123</td>
+              <td class="text-white">128元包月，20M</td>
+              <td class="text-white">156小时</td>
+              <td class="text-white">62%</td>
+              <td class="text-white"><a href="/broadband-family/family-detail">详细</a></td>
+            </tr>
+            <tr>
+              <td class="text-white">1单元103</td>
+              <td class="text-white">李浩</td>
+              <td class="text-white">15800779123</td>
+              <td class="text-white">128元包月，20M</td>
+              <td class="text-white">139小时</td>
+              <td class="text-white">45%</td>
+              <td class="text-white"><a href="/broadband-family/family-detail">详细</a></td>
+            </tr>
+            <tr>
+              <td class="text-white">1单元104</td>
+              <td class="text-white">王凯兰</td>
+              <td class="text-white">15800779123</td>
+              <td class="text-white">128元包月，20M</td>
+              <td class="text-white">102小时</td>
+              <td class="text-white">65%</td>
+              <td class="text-white"><a href="/broadband-family/family-detail">详细</a></td>
+            </tr>
+            <tr>
+              <td class="text-white">1单元105</td>
+              <td class="text-white">张力峰</td>
+              <td class="text-white">15800779123</td>
+              <td class="text-white">128元包月，20M</td>
+              <td class="text-white">92小时</td>
+              <td class="text-white">36%</td>
+              <td class="text-white"><a href="/broadband-family/family-detail">详细</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/javascript/jquery.dataTables.min.js"></script>
+<script src="/javascript/dataTables.bootstrap.min.js"></script>
+
+</script>
 <script type="text/javascript">
 
-  var marker;
+var map;
+var marker;
 
-  var map = new AMap.Map('community_map', {
+$(document).ready(function () {
+  map = new AMap.Map("community_map", {
     resizeEnable: true,
-    zoom: 16,
     mapStyle: 'amap://styles/grey',
-    center: [121.472925, 31.195456]
+    center: [
+      121.499859, 31.23966
+    ],
+    zoom: 18
   });
 
-  AMapUI.loadUI(['overlay/AwesomeMarker'], function (AwesomeMarker) {
-    marker = new AwesomeMarker({
-      //设置awesomeIcon
-      awesomeIcon: 'building-o',
-      iconLabel: {
-        style: {
-          color: '#333',
-          fontSize: '14px'
-        }
-      },
-      iconStyle: 'blue',
-      map: map,
-      position: [
-        121.472925, 31.195456
-      ],
-      title: '龙华小区'
-    });
-
-    AMap.event.addListener(marker, 'click', function () {
-      window.location.href = "/community/detail";
-    });
+  marker = new AMap.Marker({
+    position: [
+      121.44182, 31.206832
+    ],
+    title: '信联公寓',
+    icon: '/images/icon/community-24.png',
+    offset: new AMap.Pixel(-12, -12),
+    map: map
   });
 
-  //鼠标点击marker弹出自定义的信息窗体
+  map.setCenter([121.44182, 31.206832]);
+
+});
+
+$('#datatables-example').dataTable({
+  language: {
+    url: '/localisation/jquery_datatable_cn.json'
+  }
+});
+
+//鼠标点击marker弹出自定义的信息窗体
 </script>

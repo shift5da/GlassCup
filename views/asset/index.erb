@@ -12,6 +12,7 @@
               <i class="fa fa-fw fa-home"></i>
             </a>
           </li>
+          <li class="active">哑资源信息概览</li>
         </ol>
       </div>
     </div>
@@ -25,7 +26,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="panel panel-default">
-        <div class="panel-heading b-b-warning b-b-2">
+        <div class="panel-heading b-b-primary b-b-2">
 
           <div class="btn-group pull-right" role="group" aria-label="...">
             <button type="button" class="btn btn-sm btn-default active" data-toggle="tooltip" data-placement="top" title="光交箱">
@@ -70,7 +71,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&#xD7;</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel"><%= @result[:name] unless @result.nil? %></h4>
+        <h4 class="modal-title" id="myModalLabel">徐汇光交GJ102</h4>
       </div>
       <div class="modal-body" id='modal-body'>
         <%= erb :'asset/occ_detail'%>
