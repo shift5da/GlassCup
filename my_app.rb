@@ -37,9 +37,15 @@ $manhole_data = [{:name=>'徐汇人井RJ101', :lng=>'121.442045',:lat=>'31.20579
 
 
 get '/' do
+  erb :'login', :layout => :layout_blank
+end
+
+post '/' do
   session[:current_menu] = 'home'
   erb :'welcome/manager'
 end
+
+
 
 get '/dashboard' do
   session[:current_menu] = 'dashboard'
@@ -94,7 +100,7 @@ post '/asset/search' do
 end
 
 get '/asset/occs/:id' do
-  erb :'asset/occ'
+  erb :'asset/occ_detail'
 end
 
 get '/asset/manholes/:id' do
@@ -154,6 +160,14 @@ end
 
 # 家宽业务    ---------------   结束  ----------------
 
+get '/inspection' do
+  session[:current_menu] = 'inspection'
+  erb :'inspection/index'
+end
+
+get '/inspection/pipe' do
+  erb :'inspection/pipe'
+end
 
 
 # 全平台信息检索    ---------------   开始  ----------------

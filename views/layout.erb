@@ -68,7 +68,7 @@
 
                 <!-- START Switch Sidebar ON/OFF -->
                 <li id="sidebar-switch" class="hidden-xs">
-                  <a data-original-title="Slim sidebar on/off" class="action-toggle-sidebar-slim" data-placement="bottom" data-toggle="tooltip" href="javascript:%20void(0)" title="">
+                  <a data-original-title="菜单的打开/隐藏" class="action-toggle-sidebar-slim" data-placement="bottom" data-toggle="tooltip" href="javascript:%20void(0)" title="">
                     <i class="fa fa-lg fa-bars fa-fw"></i>
                   </a>
                 </li>
@@ -336,7 +336,7 @@
                   <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript:%20void(0)" role="button">
                     <span class="m-r-1">王刚</span>
                     <div class="avatar avatar-image avatar-sm avatar-inline loaded">
-                      <img alt="User" src="/images/128_023.jpg">
+                      <img alt="User" src="/images/avatar4.jpg">
                     </div>
                   </a>
                   <ul class="dropdown-menu">
@@ -398,8 +398,8 @@
               </li>
 
               <li class="<%= 'active' if session[:current_menu].eql? 'dashboard' %>">
-                <a href="/dashboard"  data-original-title="主页面" data-placement="right" data-toggle="tooltip">
-                  <i class="fa fa-dashboard fa-lg "></i>
+                <a href="/dashboard"  data-original-title="资源状态监控" data-placement="right" data-toggle="tooltip">
+                  <i class="fa fa-warning fa-lg "></i>
                   <span class="nav-label">资源状态监控</span>
                 </a>
               </li>
@@ -422,8 +422,8 @@
                   <span class="nav-label">用户投诉</span>
                 </a>
               </li>
-              <li class="">
-                <a href="#" data-original-title="巡检管理" data-placement="right" data-toggle="tooltip">
+              <li class="<%= 'active' if session[:current_menu].eql? 'inspection' %>">
+                <a href="/inspection" data-original-title="巡检管理" data-placement="right" data-toggle="tooltip">
                   <i class="fa fa-check-square-o fa-lg "></i>
                   <span class="nav-label">巡检管理</span>
                 </a>
