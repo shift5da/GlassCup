@@ -107,15 +107,17 @@ get '/asset/manholes/:id' do
   erb :'asset/manhole'
 end
 
-get '/asset/status-monitor' do
-  erb :'asset/status_monitor'
-end
-
 get '/asset/map' do
   erb :'asset/map'
 end
 
 # 资产管理页面    ---------------   结束  ----------------
+
+
+get '/monitor/asset-status' do
+  session[:current_menu] = 'monitor'
+  erb :'monitor/asset_status'
+end
 
 
 # 小区信息查询页面    ---------------   开始  ----------------
@@ -160,6 +162,10 @@ end
 
 # 家宽业务    ---------------   结束  ----------------
 
+
+
+
+# 巡检管理    ---------------   开始  ----------------
 get '/inspection' do
   session[:current_menu] = 'inspection'
   erb :'inspection/index'
@@ -168,6 +174,8 @@ end
 get '/inspection/pipe' do
   erb :'inspection/pipe'
 end
+
+# 巡检管理    ---------------   结束  ----------------
 
 
 # 全平台信息检索    ---------------   开始  ----------------
