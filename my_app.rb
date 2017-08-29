@@ -45,6 +45,11 @@ post '/' do
   erb :'welcome/manager'
 end
 
+get '/welcome/map' do
+  session[:current_menu] = 'home'
+  erb :'welcome/map'
+end
+
 
 
 get '/dashboard' do
@@ -157,6 +162,7 @@ get '/broadband-family/family-detail' do
 end
 
 get '/broadband-family/community-detail' do
+  session[:current_menu] = 'broadband-family'
   erb :'broadband-family/community-detail'
 end
 
