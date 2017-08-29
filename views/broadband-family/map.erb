@@ -68,6 +68,12 @@
       center: [121.499859, 31.23966]
     });
 
+    AMap.plugin(['AMap.ToolBar','AMap.Scale'],
+    function(){
+        map.addControl(new AMap.ToolBar());
+        map.addControl(new AMap.Scale());
+      });
+
     $.getJSON("/data/community.json", function (data) {
       $.each(data.community, function (key, val) {
         var marker = new AMap.Marker({
