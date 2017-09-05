@@ -1,0 +1,406 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading panel-heading b-b-success b-b-2">
+        <h3 class="panel-title">OneRIM管理平台</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-2">
+            <div class="panel panel-default bg-gray-darker b-a-0">
+              <div class="panel-body">
+
+                <div class="row">
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <p class="m-b-0 m-t-0 text-gray-lighter">上海市家宽业务总数</p>
+                    <h1 class="f-w-300 m-t-0 text-warning">236,543 户</h1>
+                  </div>
+
+                  <div class="col-lg-12 col-md-3 col-sm-3 col-xs-6">
+                    <p class="m-b-0 m-t-0 text-gray-lighter">2017年新增用户</p>
+                    <h1 class="f-w-300 m-t-0 text-info">34,672 户</h1>
+                  </div>
+
+                  <div class="col-lg-12 col-md-3 col-sm-3 col-xs-6">
+                    <p class="m-b-0 m-t-0 text-gray-lighter">2017年平均装机时间</p>
+                    <h1 class="f-w-300 m-t-0 text-success">48 小时</h1>
+                  </div>
+
+                  <div class="col-lg-12 col-md-3 col-sm-3 col-xs-6">
+                    <p class="m-b-0 m-t-0 text-gray-lighter">2017年装机及时率</p>
+                    <h1 class="f-w-300 m-t-0 text-primary">98.7 %</h1>
+                  </div>
+
+                  <div class="col-lg-12 col-md-3 col-sm-3 col-xs-6">
+                    <p class="m-b-0 m-t-0 text-gray-lighter">2017年退网用户数</p>
+                    <h1 class="f-w-300 m-t-0 text-danger">2986 户</h1>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-10">
+            <div class="input-group select2-bootstrap-append input-group-sm col-lg-3" style="position:absolute; top: 10px; right: 20px;">
+              <select id="multi-append" class="form-control select2 select2-input">
+                <option value="-1">全部小区</option>
+              </select>
+            </div>
+            <div id="my_map" style='height: 600px;'></div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var map;
+  var map_div_id = 'my_map';
+  var placeSearch;
+  // var array_community = {   community: [] }
+  var array_point = ['/images/icon/point-primary-12.png', '/images/icon/point-warning-12.png', '/images/icon/point-danger-12.png'];
+  var select_search = '';
+
+
+  $(document).ready(function () {
+    $('#my_map').css('height', document.body.scrollHeight - 80);
+    map = new AMap.Map(map_div_id, {
+      resizeEnable: true,
+      zoom: 11,
+      mapStyle: 'amap://styles/grey',
+      features: ['bg', 'building', 'road'],
+      center: [121.46793,31.223]
+    });
+
+    AMap.plugin(['AMap.ToolBar','AMap.Scale'],
+    function(){
+        map.addControl(new AMap.ToolBar());
+        map.addControl(new AMap.Scale());
+      });
+
+    create_districts();
+    map.on('zoomchange', function() {
+      if ( map.getZoom() <= 12){
+        map.clearMap( );
+        create_districts();
+      }
+
+      if (map.getZoom() > 14 && map.getZoom() < 18){
+        map.clearMap( );
+        create_districts();
+        show_all_districts_communities();
+
+      }
+    });
+
+    $.getJSON("/data/community.json", function (data) {
+      $.each(data.community, function (key, val) {
+        select_search = select_search + '<option value="' + key + '">' + val.name + '</option>';
+      });
+      $('#multi-append').append(select_search);
+    });
+
+
+
+    // AMap.service('AMap.DistrictSearch', function () {
+    //   var opts = {
+    //     subdistrict: 1, //返回下一级行政区
+    //     extensions: 'all', //返回行政区边界坐标组等具体信息
+    //     level: 'city' //查询行政级别为 市
+    //   };
+    //   //实例化DistrictSearch
+    //   district = new AMap.DistrictSearch(opts);
+    //   district.setLevel('district');
+    //   //行政区查询
+    //   district.search('浦东新区', function (status, result) {
+    //     alert(JSON.stringify(result));
+    //     var bounds = result.districtList[0].boundaries;
+    //     var polygons = [];
+    //
+    //     if (bounds) {
+    //       for (var i = 0, l = bounds.length; i < l; i++) {
+    //         //生成行政区划polygon
+    //         var polygon = new AMap.Polygon({
+    //           map: map,
+    //           strokeWeight: 1,
+    //           path: bounds[i],
+    //           fillOpacity: 0.7,
+    //           fillColor: '#CCF3FF',
+    //           strokeColor: '#CC66CC'
+    //         });
+    //         polygons.push(polygon);
+    //       }
+    //       map.setFitView(); //地图自适应
+    //     }
+    //   });
+    // });
+
+  });
+
+  function create_districts(){
+
+    $.get("/data/district-changning.json", function (data) {
+      create_district(data);
+    });
+    $.get("/data/district-hongkou.json", function (data) {
+      create_district(data);
+    });
+    $.get("/data/district-huangpu.json", function (data) {
+      create_district(data);
+    });
+    $.get("/data/district-jingan.json", function (data) {
+      create_district(data);
+    });
+    $.get("/data/district-putuo.json", function (data) {
+      create_district(data);
+    });
+    $.get("/data/district-xuhui.json", function (data) {
+      create_district(data);
+    });
+    $.get("/data/district-yangpu.json", function (data) {
+      create_district(data);
+    });
+
+  }
+
+  function create_district(data){
+    var bounds = data.districtList[0].boundaries[0];
+    var polygons = [];
+    if (bounds) {
+      for (var i = 0, l = bounds.length; i < l; i++) {
+        //生成行政区划polygon
+        polygons.push([bounds[i].lng, bounds[i].lat]);
+      }
+      var polygon = new AMap.Polygon({
+        map: map,
+        strokeWeight: 1,
+        path: polygons,
+        fillOpacity: 0.7,
+        fillColor: '#333333',
+        strokeColor: '#CC66CC'
+      });
+
+      polygon.on('mouseover', function(e) {
+        if (map.getZoom() <= 13){
+          e.target.setOptions({fillColor: '#CCF3FF'});
+        }
+
+      });
+      polygon.on('mouseout', function(e) {
+        e.target.setOptions({fillColor: '#333333'});
+      });
+
+      polygon.on('click', function(e) {
+        map.clearMap( );
+        polygon = new AMap.Polygon({
+          map: map,
+          strokeWeight: 1,
+          path: polygons,
+          fillOpacity: 0.7,
+          fillColor: '#333333',
+          strokeColor: '#CC66CC'
+        });
+        map.setFitView();
+        map.setZoom(13);
+        show_district_communities(polygon);
+      });
+
+    }
+
+  }
+
+  function show_all_districts_communities(){
+
+    $.getJSON("/data/community.json", function (data) {
+      $.each(data.community, function (key, val) {
+
+        if (true){
+
+          var marker = new AMap.Marker({
+            position: [
+              val.position.lng, val.position.lat
+            ],
+            title: val.name,
+            icon: array_point[val.bu],
+            offset: new AMap.Pixel(-6, -6),
+            map: map
+          });
+
+          var infoWindow_html = "";
+          infoWindow_html = infoWindow_html + "<div class='panel panel-primary  b-primary' style='width: 300px;'>";
+          infoWindow_html = infoWindow_html + "<div class='panel-heading bg-primary'>";
+          infoWindow_html = infoWindow_html + "<div class='row'>";
+          infoWindow_html = infoWindow_html + "<div class='col-lg-9'>" + val.name + "</div>";
+          infoWindow_html = infoWindow_html + "<div class='col-lg-3 text-right'>";
+          infoWindow_html = infoWindow_html + "<a href='javascript:closeInfoWindow();' class='action-panel-close'>";
+          infoWindow_html = infoWindow_html + "<i class='fa fa-fw fa-close text-white'></i>";
+          infoWindow_html = infoWindow_html + "</a>";
+          infoWindow_html = infoWindow_html + "</div>";
+          infoWindow_html = infoWindow_html + "</div>";
+          infoWindow_html = infoWindow_html + "</div>";
+          infoWindow_html = infoWindow_html + "<table class='table table-condensed m-t-1 m-b-1'>";
+          infoWindow_html = infoWindow_html + "<tbody>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'>小区用户数</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span>896户</span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'>当前在线用户数</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span>436户</span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'>光纤资源使用率</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span>65%</span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'>当前带宽使用率</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          if (val.bu == 0) {
+            infoWindow_html = infoWindow_html + "<span><i class='fa fa-fw fa-circle text-primary m-r-1'></i> 正常</span>";
+          } else if (val.bu == 1){
+            infoWindow_html = infoWindow_html + "<span><i class='fa fa-fw fa-circle text-warning m-r-1'></i> 较高</span>";
+          } else if (val.bu == 2){
+            infoWindow_html = infoWindow_html + "<span><i class='fa fa-fw fa-circle text-danger m-r-1'></i> 高</span>";
+          }
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0' width='35%'>小区地址</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span>" + val.address + "</span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'></td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span><a href='/broadband-family/community-detail' target='_blank'>详细情况</a></span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "</div>";
+
+
+          var infoWindow = new AMap.InfoWindow({
+              isCustom: true,  //使用自定义窗体
+              content: infoWindow_html,
+              autoMove: true,
+              offset: new AMap.Pixel(100, -10)
+          });
+
+          AMap.event.addListener(marker, 'click', function () {
+             infoWindow.open(map, marker.getPosition());
+          });
+
+        }
+      });
+    });
+  }
+
+  function show_district_communities(polygon){
+
+    $.getJSON("/data/community.json", function (data) {
+      $.each(data.community, function (key, val) {
+
+        if (polygon.contains([val.position.lng, val.position.lat])){
+
+          var marker = new AMap.Marker({
+            position: [
+              val.position.lng, val.position.lat
+            ],
+            title: val.name,
+            icon: array_point[val.bu],
+            offset: new AMap.Pixel(-6, -6),
+            map: map
+          });
+
+          var infoWindow_html = "";
+          infoWindow_html = infoWindow_html + "<div class='panel panel-primary  b-primary' style='width: 300px;'>";
+          infoWindow_html = infoWindow_html + "<div class='panel-heading bg-primary'>";
+          infoWindow_html = infoWindow_html + "<div class='row'>";
+          infoWindow_html = infoWindow_html + "<div class='col-lg-9'>" + val.name + "</div>";
+          infoWindow_html = infoWindow_html + "<div class='col-lg-3 text-right'>";
+          infoWindow_html = infoWindow_html + "<a href='javascript:closeInfoWindow();' class='action-panel-close'>";
+          infoWindow_html = infoWindow_html + "<i class='fa fa-fw fa-close text-white'></i>";
+          infoWindow_html = infoWindow_html + "</a>";
+          infoWindow_html = infoWindow_html + "</div>";
+          infoWindow_html = infoWindow_html + "</div>";
+          infoWindow_html = infoWindow_html + "</div>";
+          infoWindow_html = infoWindow_html + "<table class='table table-condensed m-t-1 m-b-1'>";
+          infoWindow_html = infoWindow_html + "<tbody>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'>小区用户数</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span>896户</span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'>当前在线用户数</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span>436户</span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'>光纤资源使用率</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span>65%</span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'>当前带宽使用率</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          if (val.bu == 0) {
+            infoWindow_html = infoWindow_html + "<span><i class='fa fa-fw fa-circle text-primary m-r-1'></i> 正常</span>";
+          } else if (val.bu == 1){
+            infoWindow_html = infoWindow_html + "<span><i class='fa fa-fw fa-circle text-warning m-r-1'></i> 较高</span>";
+          } else if (val.bu == 2){
+            infoWindow_html = infoWindow_html + "<span><i class='fa fa-fw fa-circle text-danger m-r-1'></i> 高</span>";
+          }
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0' width='35%'>小区地址</td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span>" + val.address + "</span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "<tr><td class='v-a-m b-t-0'></td>";
+          infoWindow_html = infoWindow_html + "<td class='v-a-m b-t-0 text-right text-white'>";
+          infoWindow_html = infoWindow_html + "<span><a href='/broadband-family/community-detail' target='_blank'>详细情况</a></span>";
+          infoWindow_html = infoWindow_html + "</td></tr>";
+          infoWindow_html = infoWindow_html + "</div>";
+
+
+          var infoWindow = new AMap.InfoWindow({
+              isCustom: true,  //使用自定义窗体
+              content: infoWindow_html,
+              autoMove: true,
+              offset: new AMap.Pixel(100, -10)
+          });
+
+          AMap.event.addListener(marker, 'click', function () {
+             infoWindow.open(map, marker.getPosition());
+          });
+
+        }
+      });
+    });
+  }
+
+  function closeInfoWindow() {
+    map.clearInfoWindow();
+  }
+
+  $( "#multi-append" ).change(function() {
+    var current_selected = $('#multi-append').val();
+    $.getJSON("/data/community.json", function (data) {
+      $.each(data.community, function (key, val) {
+        if (key == current_selected){
+          map.setCenter([val.position.lng, val.position.lat]);
+          map.setZoom(18);
+
+          var circle = new AMap.Circle({
+              center: new AMap.LngLat(val.position.lng, val.position.lat),// 圆心位置
+              radius: 20, //半径
+              strokeColor: "#F33", //线颜色
+              strokeOpacity: 1, //线透明度
+              strokeWeight: 3, //线粗细度
+              fillColor: "#ee2200", //填充颜色
+              fillOpacity: 0.35//填充透明度
+          });
+          circle.setMap(map);
+          return;
+        }
+      });
+    });
+  });
+
+</script>

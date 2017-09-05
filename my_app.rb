@@ -37,7 +37,7 @@ $manhole_data = [{:name=>'徐汇人井RJ101', :lng=>'121.442045',:lat=>'31.20579
 
 
 get '/' do
-  erb :'login', :layout => :layout_blank
+  erb :'login', :layout => :layout_login
 end
 
 post '/' do
@@ -151,6 +151,10 @@ end
 
 get '/broadband-family/map' do
   erb :'broadband-family/map'
+end
+
+get '/broadband-family/overview' do
+  erb :'broadband-family/overview', :layout => :layout_blank
 end
 
 get '/broadband-family/utilization' do

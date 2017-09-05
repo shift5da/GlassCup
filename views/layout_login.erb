@@ -25,21 +25,23 @@
 
   </head>
 
-  <body class="">
+  <body class="sidebar-disabled navbar-disabled footer-disabled">
+    <div class="container-fluid" style="margin-left:-15px;margin-right:-15px;">
+      <div class="content" style="padding-top: 80px;">
+        <%= yield %>
+      </div>
 
-    <%= yield %>
+    </div>
 
     <!-- Bower Libraries Styles -->
     <link rel="stylesheet" href="/style/lib.css">
     <script src="/javascript/app.js"></script>
+    <script src="/javascript/plugins-init.js"></script>
     <script src="/javascript/common.js"></script>
     <script src="/javascript/highstock.min.js"></script>
     <script src="/javascript/highcharts-settings.js"></script>
     <script src="/javascript/highstock-settings.js"></script>
     <script src="/javascript/highcharts-highstock-theme.js"></script>
-    <script src="/javascript/select2.min.js"></script>
-    <script src="/javascript/bootstrap-select.min.js"></script>
-    <script src="/javascript/plugins-init.js"></script>
 
   </body>
 
