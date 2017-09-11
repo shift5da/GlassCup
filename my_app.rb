@@ -50,6 +50,40 @@ get '/welcome/map' do
   erb :'welcome/map'
 end
 
+get '/welcome' do
+  session[:current_menu] = 'home'
+  erb :'welcome/index', :layout => :layout_blank
+end
+
+get '/welcome/district/:district_name' do
+  session[:current_menu] = 'home'
+  @district_name = params[:district_name]
+
+  case @district_name
+  when "changning"
+
+  when "hongkou"
+    @msg = {district_name_cn: '虹口区', data1: '41239', data2: '5123', data3: '48', data4: '97.4', data5: '541'}
+  when "huangpu"
+    @msg = {district_name_cn: '黄浦区', data1: '38761', data2: '6123', data3: '43', data4: '96.8', data5: '761'}
+  when "jingan"
+    @msg = {district_name_cn: '静安区', data1: '27612', data2: '2198', data3: '47', data4: '98.5', data5: '236'}
+  when "putuo"
+    @msg = {district_name_cn: '普陀区', data1: '38619', data2: '7612', data3: '52', data4: '98.9', data5: '871'}
+  when "xuhui"
+    @msg = {district_name_cn: '徐汇区', data1: '43198', data2: '7621', data3: '41', data4: '97.3', data5: '529'}
+  when "yangpu"
+    @msg = {district_name_cn: '杨浦区', data1: '23548', data2: '3218', data3: '46', data4: '96.2', data5: '241'}
+  end
+
+  erb :'welcome/district', :layout => :layout_blank
+end
+
+
+get '/home' do
+  session[:current_menu] = 'home'
+  erb :'home', :layout => :layout_blank
+end
 
 
 get '/dashboard' do
@@ -105,7 +139,7 @@ post '/asset/search' do
 end
 
 get '/asset/occs/:id' do
-  erb :'asset/occ_detail'
+  erb :'asset/occ_detail', layout: :layout_blank
 end
 
 get '/asset/manholes/:id' do
@@ -123,6 +157,7 @@ get '/monitor/asset-status' do
   session[:current_menu] = 'monitor'
   erb :'monitor/asset_status'
 end
+
 
 
 # 小区信息查询页面    ---------------   开始  ----------------
@@ -162,12 +197,12 @@ get '/broadband-family/utilization' do
 end
 
 get '/broadband-family/family-detail' do
-  erb :'broadband-family/family-detail'
+  erb :'broadband-family/family-detail', layout: :layout_blank
 end
 
 get '/broadband-family/community-detail' do
   session[:current_menu] = 'broadband-family'
-  erb :'broadband-family/community-detail'
+  erb :'broadband-family/community-detail', layout: :layout_blank
 end
 
 # 家宽业务    ---------------   结束  ----------------
