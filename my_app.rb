@@ -42,7 +42,7 @@ end
 
 post '/' do
   session[:current_menu] = 'home'
-  erb :'welcome/manager'
+  erb :'monitor/index'
 end
 
 get '/welcome/map' do
@@ -152,10 +152,25 @@ end
 
 # 资产管理页面    ---------------   结束  ----------------
 
+get '/monitor' do
+  session[:current_menu] = 'monitor'
+  erb :'monitor/index', :layout => :layout_blank
+end
+
 
 get '/monitor/asset-status' do
   session[:current_menu] = 'monitor'
   erb :'monitor/asset_status'
+end
+
+get '/monitor/index' do
+  session[:current_menu] = 'monitor'
+  erb :'monitor/index', :layout => :layout_blank
+end
+
+
+get '/complaint' do
+  erb :'complaint/index', layout: :layout_blank
 end
 
 

@@ -13,7 +13,8 @@
     map = new AMap.Map(map_div_id, {
       resizeEnable: true,
       zoom: 12,
-      mapStyle: 'amap://styles/grey',
+      // mapStyle: 'amap://styles/grey',
+      mapStyle: 'amap://styles/whitesmoke',
       features: ['bg', 'building', 'road'],
       center: [121.420122,31.230193]
     });
