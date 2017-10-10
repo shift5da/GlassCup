@@ -1,22 +1,9 @@
-<!-- START Sub-Navbar with Header and Breadcrumbs-->
-<div class="sub-navbar sub-navbar__header-breadcrumbs">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 sub-navbar-column">
-        <div class="sub-navbar-header">
-          <h3>哑资源信息概览</h3>
-        </div>
-        <ol class="breadcrumb navbar-text navbar-right no-bg">
-          <li class="current-parent">
-            <a class="current-parent" href="/community/index">
-              <i class="fa fa-fw fa-home"></i>
-            </a>
-          </li>
-          <li class="active">哑资源信息概览</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div style="position:absolute; top: 5px; left: 30px;">
+  <a href="/monitor" class="text-gray-lighter">
+    <h2 style="margin-top:0px;">
+      <i class="fa fa-reply" aria-hidden="true"></i>
+    </h2>
+  </a>
 </div>
 
 <!-- END Sub-Navbar with Header and Breadcrumbs-->
@@ -24,44 +11,350 @@
 <div class="container-fluid">
 
   <div class="row">
-    <div class="col-lg-12">
-      <div class="panel panel-default">
-        <div class="panel-heading b-b-primary b-b-2">
-
-          <div class="btn-group pull-right" role="group" aria-label="...">
-            <button type="button" class="btn btn-sm btn-default active" data-toggle="tooltip" data-placement="top" title="光交箱">
-              光交箱
-            </button>
-            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="人手井">
-              人手井
-            </button>
-            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="基站">
-              基站
-            </button>
-            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="管道">
-              管道
-            </button>
-          </div>
-          <div class="col-lg-2 pull-right">
-            <form class="input-group input-group-sm" action="/asset/search" id='form_asset_search' method="post">
-              <input type="text" class="form-control" id='key' name='key' placeholder="输入小区的名称查询......">
-              <span class="input-group-btn">
-                <button class="btn btn-sm btn-primary" type="button" onclick="javascript:form_asset_search_submit();">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </form>
-            <!-- /input-group -->
-          </div>
-          <h3 class="panel-title">哑资源信息概览</h3>
+    <div class="col-lg-3">
+      <div class="hr-text hr-text-left m-t-0 m-b-1">
+        <h6 class="text-white">
+          <strong>查询</strong>
+        </h6>
+      </div>
+      <div class="input-group">
+        <input type="text" class="form-control" aria-label="..." placeholder="请输入关键字...">
+        <div class="input-group-btn">
+          <a role="button" class="btn btn-primary" href="search-results.html">
+            <i class="fa fa-search"></i>
+          </a>
         </div>
-        <div class="panel-body">
-          <div id="my_map" style="min-height:700px"></div>
+      </div>
+      <div class="panel panel-default no-bg b-a-2 b-gray-dark m-t-2">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-sm-4 col-xs-4">
+              <i class="fa fa-list-alt" aria-hidden="true"></i>
+              资源统计
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="small text-muted text-uppercase">
+                <strong>类型</strong>
+              </th>
+              <th class="small text-muted text-uppercase">
+                <strong>数量</strong>
+              </th>
+              <th class="small text-muted text-uppercase">
+                <strong>在线</strong>
+              </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="v-a-m">
+                <span class="text-white p-l-3">光交箱</span>
+              </td>
+              <td class="v-a-m text-white">
+                <span>1432</span>
+              </td>
+              <td class="v-a-m text-danger">
+                <span>1401</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                <span class="text-white p-l-3">光分纤箱</span>
+              </td>
+              <td class="v-a-m text-white">
+                <span>4652</span>
+              </td>
+              <td class="v-a-m text-warning">
+                <span>4640</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                <span class="text-white p-l-3">基站</span>
+              </td>
+              <td class="v-a-m text-white">
+                <span>1432</span>
+              </td>
+              <td class="v-a-m text-danger">
+                <span>1401</span>
+              </td>
+
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                <span class="text-white p-l-3">长途光缆（皮长公里）</span>
+              </td>
+              <td class="v-a-m text-white">
+                <span>143</span>
+              </td>
+              <td class="v-a-m text-success">
+                <span>143</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                <span class="text-white p-l-3">骨干光缆（皮长公里）</span>
+              </td>
+              <td class="v-a-m text-white">
+                <span>241</span>
+              </td>
+              <td class="v-a-m text-success">
+                <span>241</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                <span class="text-white p-l-3"></span>
+              </td>
+              <td class="v-a-m text-white">
+                <span></span>
+              </td>
+              <td class="v-a-m text-success">
+                <span></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                <span class="text-white p-l-3"></span>
+              </td>
+              <td class="v-a-m text-white">
+                <span></span>
+              </td>
+              <td class="v-a-m text-success">
+                <span></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                <span class="text-white p-l-3"></span>
+              </td>
+              <td class="v-a-m text-white">
+                <span></span>
+              </td>
+              <td class="v-a-m text-success">
+                <span></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel panel-default no-bg b-a-2 b-gray-dark m-t-2">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-sm-4 col-xs-4">
+              <i class="fa fa-list-alt" aria-hidden="true"></i>
+              代维公司
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="small text-muted text-uppercase">
+                <strong>公司名称</strong>
+              </th>
+              <th class="small text-muted text-uppercase">
+                <strong>人员名称</strong>
+              </th>
+              <th class="small text-muted text-uppercase">
+                <strong>联系方式</strong>
+              </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="v-a-m" colspan="3">
+                <span class="text-white">浙江和勤</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                &nbsp;
+              </td>
+              <td class="v-a-m text-white">
+                <span>江宁</span>
+              </td>
+              <td class="v-a-m text-info">
+                <span>13865123124</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                &nbsp;
+              </td>
+              <td class="v-a-m text-white">
+                <span>王海</span>
+              </td>
+              <td class="v-a-m text-info">
+                <span>13865123124</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                &nbsp;
+              </td>
+              <td class="v-a-m text-white">
+                <span>王亮</span>
+              </td>
+              <td class="v-a-m text-info">
+                <span>13865123124</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                &nbsp;
+              </td>
+              <td class="v-a-m text-white">
+                <span>王玮</span>
+              </td>
+              <td class="v-a-m text-info">
+                <span>13865123124</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m" colspan="3">
+                <span class="text-white">广东长实</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                &nbsp;
+              </td>
+              <td class="v-a-m text-white">
+                <span>赵亮</span>
+              </td>
+              <td class="v-a-m text-info">
+                <span>13865123124</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                &nbsp;
+              </td>
+              <td class="v-a-m text-white">
+                <span>朱海涛</span>
+              </td>
+              <td class="v-a-m text-info">
+                <span>13865123124</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                &nbsp;
+              </td>
+              <td class="v-a-m text-white">
+                <span>李明文</span>
+              </td>
+              <td class="v-a-m text-info">
+                <span>13865123124</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-a-m">
+                &nbsp;
+              </td>
+              <td class="v-a-m text-white">
+                <span>曲宁</span>
+              </td>
+              <td class="v-a-m text-info">
+                <span>13865123124</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="panel panel-default">
+            <div id="my_map" style="min-height:600px"></div>
+        </div>
+      </div>
+      <div class="row" style="position:absolute; top: 10px;">
+        <div class="col-lg-12">
+          <div class="btn-group m-b-1" data-toggle="buttons" style="width: 100%">
+            <label class="btn btn-sm btn-primary btn-outline">
+              <input type="checkbox" id='checkbox_reset'>
+              恢复
+            </label>
+            <label class="btn btn-sm btn-primary btn-outline">
+              <input type="checkbox" id='checkbox_community'>
+              家宽用户
+            </label>
+            <label class="btn btn-sm btn-primary btn-outline">
+              <input type="checkbox" id='checkbox_occ'>
+              光交箱
+            </label>
+            <label class="btn btn-sm btn-primary btn-outline">
+              <input type="checkbox" id='checkbox_station'>
+              基站
+            </label>
+
+          </div>
         </div>
       </div>
 
     </div>
+    <div class="col-lg-3">
+      <div class="row">
+
+        <div class="col-lg-12">
+          <div class="panel panel-default no-bg b-a-2 b-gray-dark">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-lg-12">
+                  <i class="fa fa-line-chart" aria-hidden="true"></i>
+                  今年光交箱新增数量量统计
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="highcharts-7" style='height:200px;'></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="panel panel-default no-bg b-a-2 b-gray-dark">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-lg-12">
+                  <i class="fa fa-line-chart" aria-hidden="true"></i>
+                  今年光缆新增数量量统计（皮长公里）
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="highcharts-8" style='height:200px;'></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="panel panel-default no-bg b-a-2 b-gray-dark">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-lg-12">
+                  <i class="fa fa-line-chart" aria-hidden="true"></i>
+                  今年光分纤箱新增数量量统计
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="highcharts-9" style='height:200px;'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -85,59 +378,6 @@
 
 <script type="text/javascript">
 
-  var marker;
-  var map;
-  var map_div_id = 'my_map';
-  var occ_data = []
-
-  $(document).ready(function () {
-    map = new AMap.Map(map_div_id, {
-      resizeEnable: true,
-      zoom: 14,
-      mapStyle: 'amap://styles/grey',
-      center: [121.499859, 31.23966]
-    });
-
-    <% if @result.nil?  %>
-    marker = show_marker(map, "occ", "徐汇光交GJ101", "121.441788", "31.206199");
-    AMap.event.addListener(marker, 'click', function () {
-      $('#myModal').modal('show');
-    });
-    marker = show_marker(map, "occ", "徐汇光交GJ102", "121.44123", "31.201757");
-    AMap.event.addListener(marker, 'click', function () {
-      $('#myModal').modal('show');
-    });
-    marker = show_marker(map, "occ", "徐汇光交GJ103", "121.437668", "31.200436");
-    AMap.event.addListener(marker, 'click', function () {
-      $('#myModal').modal('show');
-    });
-    map.setCenter([121.441788, 31.206199]);
-    <% else  %>
-    marker = show_marker(map, "occ", "徐汇光交GJ101", "121.441788", "31.206199");
-    map.setCenter([121.441788, 31.206199]);
-    AMap.event.addListener(marker, 'click', function () {
-      $('#myModal').modal('show');
-    });
-    <% end  %>
-  });
-
-  function form_asset_search_submit() {
-    $('#form_asset_search').submit();
-  }
-
-  function show_marker(map, type, name, lng, lat) {
-    var marker = new AMap.Marker({
-      position: [
-        lng, lat
-      ],
-      title: name,
-      icon: '/images/icon/occ-default-24.png',
-      map: map
-    });
-    return marker;
-  }
-
-  function closeInfoWindow() {
-    map.clearInfoWindow();
-  }
+  var district_name = "huangpu";
 </script>
+<script src="/javascript/pages/asset/index.js" charset="utf-8"></script>

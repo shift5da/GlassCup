@@ -1,97 +1,16 @@
-<!-- START Sub-Navbar with Header and Breadcrumbs-->
-<div class="sub-navbar sub-navbar__header-breadcrumbs">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 sub-navbar-column">
-        <div class="sub-navbar-header">
-          <h3>资源状态监控</h3>
-        </div>
-        <ol class="breadcrumb navbar-text navbar-right no-bg">
-          <li class="current-parent">
-            <a class="current-parent" href="/community/index">
-              <i class="fa fa-fw fa-home"></i>
-            </a>
-          </li>
-          <li class="active">资源状态监控</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div style="position:absolute; top: 5px; left: 30px;">
+  <a href="/monitor" class="text-gray-lighter">
+    <h2 style="margin-top:0px;">
+      <i class="fa fa-reply" aria-hidden="true"></i>
+    </h2>
+  </a>
 </div>
+
+
 
 <div class="container-fluid" style="">
 
   <div class="row">
-    <div class="col-lg-9">
-
-      <div class="panel panel-default">
-        <div class="panel-heading panel-heading b-b-warning b-b-2">
-          <div class="col-xs-3 pull-right">
-            <div class="input-group input-group-sm">
-              <input type="text" class="form-control" placeholder="输入关键字查询">
-              <span class="input-group-btn">
-                <button class="btn btn-sm btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-            <!-- /input-group -->
-          </div>
-          <div class="btn-group pull-right">
-            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              全上海市
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="#">
-                  <i class="fa fa-fw text-gray-lighter fa-angle-rightm-r-1"></i>全上海市</a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>普陀区</a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>徐汇区</a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>静安区</a>
-              </li>
-            </ul>
-          </div>
-          <div class="btn-group pull-right">
-            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              全部告警
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="#">
-                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>全部告警</a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>光交箱状态告警</a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>光缆状态监控告警</a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>人手井状态监控告警</a>
-              </li>
-            </ul>
-          </div>
-          <h3 class="panel-title">资源状态监控</h3>
-        </div>
-        <div class="panel-body">
-          <div id="my_map" style="min-height:600px"></div>
-        </div>
-      </div>
-    </div>
     <div class="col-lg-3">
 
       <div class="panel panel-default no-bg b-a-2  b-gray-dark">
@@ -241,6 +160,567 @@
 
       </div>
     </div>
+    <div class="col-lg-6">
+
+      <div class="panel panel-default">
+        <div class="panel-heading panel-heading b-b-warning b-b-2">
+          <div class="col-xs-3 pull-right">
+            <div class="input-group input-group-sm">
+              <input type="text" class="form-control" placeholder="输入关键字查询">
+              <span class="input-group-btn">
+                <button class="btn btn-sm btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+            <!-- /input-group -->
+          </div>
+          <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              全上海市
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">
+                  <i class="fa fa-fw text-gray-lighter fa-angle-rightm-r-1"></i>全上海市</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>普陀区</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>徐汇区</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>静安区</a>
+              </li>
+            </ul>
+          </div>
+          <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              全部告警
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">
+                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>全部告警</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>光交箱状态告警</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>光缆状态监控告警</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-fw text-gray-lighter fa-angle-right m-r-1"></i>人手井状态监控告警</a>
+              </li>
+            </ul>
+          </div>
+          <h3 class="panel-title">资源状态监控</h3>
+        </div>
+        <div class="panel-body">
+          <div id="my_map" style="min-height:600px"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="panel panel-default no-bg b-a-2 b-gray-dark">
+
+        <div class="panel-heading">
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <button type="button" class="btn btn-link btn-xs" data-toggle="tooltip" data-placement="top" title="刷新">
+              <i class="fa fa-refresh fa-fw fa-lg text-white"></i>
+            </button>
+          </div>
+          <h5 class="panel-title">当月告警按区域统计</h5>
+        </div>
+        <div class="scroll-300 custom-scrollbar">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="small text-muted text-uppercase">
+                  <strong>区域</strong>
+                </th>
+                <th class="small text-muted text-uppercase">
+                  <strong>总数</strong>
+                </th>
+                <th class="small text-muted text-uppercase">
+                  <strong>已处理</strong>
+                </th>
+                <th class="small text-muted text-uppercase">
+                  <strong>未处理</strong>
+                </th>
+                <th class="small text-muted text-uppercase">
+                  <strong>正在处理</strong>
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">长宁</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">虹口</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">黄浦</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">静安</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">普陀</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">徐汇</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">杨浦</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">闵行</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">浦东新区</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">金山</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">松江</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">嘉定</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">青浦</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">松江</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">奉贤</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">崇明</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel panel-default no-bg b-a-2 b-gray-dark">
+
+        <div class="panel-heading">
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <button type="button" class="btn btn-link btn-xs" data-toggle="tooltip" data-placement="top" title="刷新">
+              <i class="fa fa-refresh fa-fw fa-lg text-white"></i>
+            </button>
+          </div>
+          <h5 class="panel-title">当月告警按类型统计</h5>
+        </div>
+        <div class="scroll-300 custom-scrollbar">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="small text-muted text-uppercase">
+                  <strong>名称</strong>
+                </th>
+                <th class="small text-muted text-uppercase">
+                  <strong>总数</strong>
+                </th>
+                <th class="small text-muted text-uppercase">
+                  <strong>已处理</strong>
+                </th>
+                <th class="small text-muted text-uppercase">
+                  <strong>未处理</strong>
+                </th>
+                <th class="small text-muted text-uppercase">
+                  <strong>正在处理</strong>
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">光交箱</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">光缆</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">人井</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">电杆</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="v-a-m">
+                  <span class="text-white p-l-3">
+                    <a href="#">光分纤箱</a>
+                  </span>
+                </td>
+                <td class="v-a-m text-white">
+                  <span>234</span>
+                </td>
+                <td class="v-a-m text-success">
+                  <span>230</span>
+                </td>
+                <td class="v-a-m text-danger">
+                  <span>2</span>
+                </td>
+                <td class="v-a-m text-warning">
+                  <span>2</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12">
+      <div class="panel panel-default no-bg b-a-2 b-gray-dark">
+
+        <div class="panel-heading">
+          <h5 class="panel-title"><i class="fa fa-line-chart" aria-hidden="true"></i> 今年各类型告警数量统计</h5>
+        </div>
+        <div class="panel-body">
+          <div class="highcharts-6" style='height:300px;'></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 

@@ -306,6 +306,120 @@ $(function() {
     }]
     });
   });
+  Dashboard.Helpers.elementExists('.highcharts-6', function() {
+    $(this).highcharts({
+      title: {
+        text: ''
+      },
+
+      subtitle: {
+        text: ''
+      },
+      xAxis: {
+        gridLineWidth: 1,
+        categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月']
+      },
+      yAxis: {
+        title: {
+          text: '投诉量'
+        }
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+      },
+      series: [{
+        name: '光交箱',
+        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+      }, {
+        name: '人手井',
+        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+      }, {
+        name: '光缆',
+        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+      }, {
+        name: '分纤箱',
+        data: [11444, 11681, 7988, 12169, 15112, 22452, 34400, 34227]
+      }, {
+        name: '管道',
+        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+      }]
+    });
+  });
+  Dashboard.Helpers.elementExists('.highcharts-7', function() {
+    $(this).highcharts({
+      title: {
+        text: ''
+      },
+
+      subtitle: {
+        text: ''
+      },
+      xAxis: {
+        gridLineWidth: 1,
+        categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月']
+      },
+      yAxis: {
+        title: {
+          text: '新增量'
+        }
+      },
+      series: [{
+        name: '光交箱',
+        data: [123, 23, 33, 323, 214, 143, 110, 86]
+      }]
+    });
+  });
+  Dashboard.Helpers.elementExists('.highcharts-8', function() {
+    $(this).highcharts({
+      title: {
+        text: ''
+      },
+
+      subtitle: {
+        text: ''
+      },
+      xAxis: {
+        gridLineWidth: 1,
+        categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月']
+      },
+      yAxis: {
+        title: {
+          text: '新增量'
+        }
+      },
+      series: [{
+        name: '光缆',
+        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+      }]
+    });
+  });
+  Dashboard.Helpers.elementExists('.highcharts-9', function() {
+    $(this).highcharts({
+      title: {
+        text: ''
+      },
+
+      subtitle: {
+        text: ''
+      },
+      xAxis: {
+        gridLineWidth: 1,
+        categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月']
+      },
+      yAxis: {
+        title: {
+          text: '新增量'
+        }
+      },
+      series: [{
+        name: '光分纤箱',
+        data: [123, 23, 33, 323, 214, 143, 110, 86]
+      }]
+    });
+  });
+
 
   /** Highcharts Settings To Gallery from highcharts.html **/
   Dashboard.Helpers.elementExists('.highcharts-line', function() {

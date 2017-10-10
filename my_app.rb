@@ -128,7 +128,7 @@ end
 
 get '/asset' do
   session[:current_menu] = 'asset'
-  erb :'asset/index'
+  erb :'asset/index', layout: :layout_blank
 end
 
 post '/asset/search' do
@@ -159,8 +159,7 @@ end
 
 
 get '/monitor/asset-status' do
-  session[:current_menu] = 'monitor'
-  erb :'monitor/asset_status'
+  erb :'monitor/asset_status', :layout => :layout_blank
 end
 
 get '/monitor/index' do
@@ -168,9 +167,34 @@ get '/monitor/index' do
   erb :'monitor/index', :layout => :layout_blank
 end
 
+get '/monitor/community-detail' do
+  erb :'monitor/community-detail', :layout => :layout_blank
+end
+
+get '/monitor/family-detail' do
+  erb :'monitor/family-detail', :layout => :layout_blank
+end
+
+get '/monitor/task-detail' do
+  erb :'monitor/task-detail', :layout => :layout_blank
+end
+
 
 get '/complaint' do
   erb :'complaint/index', layout: :layout_blank
+end
+
+get '/complaint/family-detail' do
+  erb :'complaint/family-detail', layout: :layout_blank
+end
+
+
+get '/task' do
+  erb :'task/index', :layout => :layout_blank
+end
+
+get '/task/detail' do
+  erb :'task/detail', :layout => :layout_blank
 end
 
 
@@ -196,11 +220,11 @@ end
 
 get '/broadband-family' do
   session[:current_menu] = 'broadband-family'
-  erb :'broadband-family/index'
+  erb :'broadband-family/index', layout: :layout_blank
 end
 
 get '/broadband-family/map' do
-  erb :'broadband-family/map'
+  erb :'broadband-family/map', layout: :layout_blank
 end
 
 get '/broadband-family/overview' do
@@ -208,7 +232,7 @@ get '/broadband-family/overview' do
 end
 
 get '/broadband-family/utilization' do
-  erb :'broadband-family/utilization'
+  erb :'broadband-family/utilization', layout: :layout_blank
 end
 
 get '/broadband-family/family-detail' do
@@ -228,11 +252,11 @@ end
 # 巡检管理    ---------------   开始  ----------------
 get '/inspection' do
   session[:current_menu] = 'inspection'
-  erb :'inspection/index'
+  erb :'inspection/index', :layout => :layout_blank
 end
 
 get '/inspection/pipe' do
-  erb :'inspection/pipe'
+  erb :'inspection/pipe', :layout => :layout_blank
 end
 
 # 巡检管理    ---------------   结束  ----------------

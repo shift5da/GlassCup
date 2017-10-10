@@ -33,7 +33,7 @@
         <div class="col-lg-3 col-md-4">
           <div class="panel panel-default b-a-0 bg-gray-dark bg-danger-i">
             <div class="panel-heading b-b-0">今日政企客户投诉量
-              <span class="label label-white label-outline  pull-right"><a href="/complaint" class="text-white">详细</a></span>
+              <span class="label label-white label-outline  pull-right"><a href="#" class="text-white">详细</a></span>
             </div>
             <div class="panel-body text-center p-t-0">
               <div class="row">
@@ -58,7 +58,7 @@
         <div class="col-lg-3 col-md-4">
           <div class="panel panel-default b-a-0 bg-gray-dark bg-success-i">
             <div class="panel-heading b-b-0">今日家宽用户装机量
-              <span class="label label-white label-outline  pull-right"><a href="/broadband-family" class="text-white">详细</a></span>
+              <span class="label label-white label-outline  pull-right"><a href="#" class="text-white">详细</a></span>
             </div>
             <div class="panel-body text-center p-t-0">
               <div class="row">
@@ -83,7 +83,7 @@
         <div class="col-lg-3 col-md-4">
           <div class="panel panel-default b-a-0 bg-primary-i">
             <div class="panel-heading b-b-0">今日家宽用户拆机量
-              <span class="label label-white label-outline pull-right"><a href="/broadband-family" class="text-white">详细</a></span>
+              <span class="label label-white label-outline pull-right"><a href="#" class="text-white">详细</a></span>
             </div>
             <div class="panel-body text-center p-t-0">
               <div class="row">
@@ -148,12 +148,12 @@
               <tbody>
                 <tr>
                   <td class="v-a-m" colspan="4">
-                    <span class="text-white">客户资源</span>
+                    <span class="text-white"><a href="/broadband-family">客户资源</a></span>
                   </td>
                 </tr>
                 <tr>
                   <td class="v-a-m">
-                    <span class="text-white p-l-3"><a href="/broadband-family">家宽用户</a></span>
+                    <span class="text-white p-l-3">家宽用户</span>
                   </td>
                   <td class="v-a-m text-white">
                     <span>253762</span>
@@ -165,7 +165,7 @@
                 </tr>
                 <tr>
                   <td class="v-a-m">
-                    <span class="text-white p-l-3"><a href="/broadband-family">政企客户</a></span>
+                    <span class="text-white p-l-3">政企客户</span>
                   </td>
                   <td class="v-a-m text-white">
                     <span>35423</span>
@@ -177,7 +177,7 @@
                 </tr>
                 <tr>
                   <td class="v-a-m" colspan="4">
-                    <span class="text-white">哑资源</span>
+                    <span class="text-white"><a href="/asset">哑资源</a></span>
                   </td>
                 </tr>
                 <tr>
@@ -265,6 +265,12 @@
         </div>
         <!-- END Visitor Chart -->
         <div class="col-lg-8">
+          <div class="input-group select2-bootstrap-append input-group-sm col-lg-3" style="position:absolute; top: 10px; right: 20px;">
+            <select id="select_map" class="form-control" onchange="javascript:update_map(this)">
+              <option value="1">告警信息</option>
+              <option value="2">家宽用户</option>
+            </select>
+          </div>
           <div id="my_map" style='height: 470px;'></div>
         </div>
       </div>
@@ -328,283 +334,231 @@
         <div class="col-lg-12">
           <div class="panel panel-default b-t-danger b-t-2">
               <div class="panel-heading  b-b-danger b-b-2">
-                  <span class="m-r-1">告警记录</span> <span class="label label-warning label-outline small">43</span>
+                  <a href="/monitor/asset-status" class="text-white"><span class="m-r-1">告警记录</span></a> <span class="label label-warning label-outline small">43</span>
               </div>
               <div class="scroll-300 custom-scrollbar" style="max-height: 330px">
                 <table class="table">
                   <thead>
                     <tr>
                       <th class="small text-muted text-uppercase">
-                        <strong>类型</strong>
+                        <strong>告警</strong>
                       </th>
                       <th class="small text-muted text-uppercase">
-                        <strong>数量</strong>
+                        <strong>告警时间</strong>
                       </th>
                       <th class="small text-muted text-uppercase">
-                        <strong>在线</strong>
+                        <strong>状态</strong>
                       </th>
-
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="v-a-m" colspan="4">
-                        <span class="text-white">客户资源</span>
-                      </td>
+                      <td><a href="javascript:focus_marker_1()">【浦东】浦东南路和东城路交界处，光缆断裂。</a></td>
+                      <td><span class="text-white">今天 14:23:12</span></td>
+                      <td><span class="text-danger">未处理</span></td>
                     </tr>
                     <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3">家宽用户数</span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span>253762</span>
-                      </td>
-                      <td class="v-a-m text-primary">
-                        <span>245362</span>
-                      </td>
-
+                      <td><a href="javascript:focus_marker_2()">【徐汇】徐汇光交GJ101被非法开启</a></td>
+                      <td><span class="text-white">今天 11:23:12</span></td>
+                      <td><span class="text-info">正在赶往现场</span></td>
                     </tr>
                     <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3">政企客户数</span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span>35423</span>
-                      </td>
-                      <td class="v-a-m text-primary">
-                        <span>35420</span>
-                      </td>
-
+                      <td><a href="javascript:focus_marker_3()">【徐汇】徐汇光交GJ103被非法开启</a></td>
+                      <td><span class="text-white">今天 10:23:12</span></td>
+                      <td><span class="text-info">正在赶往现场</span></td>
                     </tr>
-                    <tr>
-                      <td class="v-a-m" colspan="4">
-                        <span class="text-white">哑资源</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3">光交箱</span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span>1432</span>
-                      </td>
-                      <td class="v-a-m text-danger">
-                        <span>1401</span>
-                      </td>
-
-                    </tr>
-                    <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3">光分纤箱</span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span>4652</span>
-                      </td>
-                      <td class="v-a-m text-warning">
-                        <span>4640</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3">长途光缆（皮长公里）</span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span>143</span>
-                      </td>
-                      <td class="v-a-m text-success">
-                        <span>143</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3">骨干光缆（皮长公里）</span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span>241</span>
-                      </td>
-                      <td class="v-a-m text-success">
-                        <span>241</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3"></span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span></span>
-                      </td>
-                      <td class="v-a-m text-success">
-                        <span></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3"></span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span></span>
-                      </td>
-                      <td class="v-a-m text-success">
-                        <span></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-a-m">
-                        <span class="text-white p-l-3"></span>
-                      </td>
-                      <td class="v-a-m text-white">
-                        <span></span>
-                      </td>
-                      <td class="v-a-m text-success">
-                        <span></span>
-                      </td>
-                    </tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
                   </tbody>
                 </table>
               </div>
           </div>
             <div class="panel panel-default b-t-warning b-t-2">
                 <div class="panel-heading b-b-warning b-b-2">
-                    <span class="m-r-1">当前任务</span> <span class="label label-warning label-outline small">43</span>
+                    <a href="/task" class="text-white"><span class="m-r-1">当前任务</span></a> <span class="label label-warning label-outline small">5</span>
                 </div>
-                <div class="scroll-300 custom-scrollbar" style="max-height: 330px">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th class="small text-muted text-uppercase">
-                          <strong>类型</strong>
-                        </th>
-                        <th class="small text-muted text-uppercase">
-                          <strong>数量</strong>
-                        </th>
-                        <th class="small text-muted text-uppercase">
-                          <strong>在线</strong>
-                        </th>
 
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="v-a-m" colspan="4">
-                          <span class="text-white">客户资源</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3">家宽用户数</span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span>253762</span>
-                        </td>
-                        <td class="v-a-m text-primary">
-                          <span>245362</span>
-                        </td>
+                  <!-- START Scroll Inside Panel -->
+                  <ul class="list-group scroll-300 custom-scrollbar"style="max-height: 330px">
 
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3">政企客户数</span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span>35423</span>
-                        </td>
-                        <td class="v-a-m text-primary">
-                          <span>35420</span>
-                        </td>
+                    <!-- START Project -->
+                    <li class="list-group-item no-bg b-t-0">
+                      <!-- START Media Task Name -->
+                      <div class="media m-t-0">
+                        <div class="media-body">
+                          <!-- START ID & Title Task -->
+                          <h5 class="m-b-1">
+                            <a href="/monitor/task-detail">徐汇区光交巡检任务</a>
+                          </h5>
+                          <!-- END ID & Title Task -->
+                        </div>
+                        <div class="media-right media-middle">
+                          <span class="label label-success label-outline">正在执行</span>
+                        </div>
+                      </div>
+                      <!-- END Media Task Name -->
+                      <div class="progress b-r-a-0 m-t-0 m-b-1 h-3">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                      <div class="row m-b-2">
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">67%</h4>
+                          <p class="text-center m-b-0">已完成</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">3</h4>
+                          <p class="text-center m-b-0">
+                            数据更新</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">28</h4>
+                          <p class="text-center m-b-0">
+                            剩余数量</p>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- END Project -->
 
-                      </tr>
-                      <tr>
-                        <td class="v-a-m" colspan="4">
-                          <span class="text-white">哑资源</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3">光交箱</span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span>1432</span>
-                        </td>
-                        <td class="v-a-m text-danger">
-                          <span>1401</span>
-                        </td>
+                    <!-- START Project -->
+                    <li class="list-group-item no-bg">
+                      <!-- START Media Task Name -->
+                      <div class="media m-t-0">
+                        <div class="media-body">
+                          <!-- START ID & Title Task -->
+                          <h5 class="m-b-1">
+                            <a href="/monitor/task-detail">普陀区光交巡检任务</a>
+                          </h5>
+                          <!-- END ID & Title Task -->
+                        </div>
+                        <div class="media-right media-middle">
+                          <span class="label label-success label-outline">正在执行</span>
+                        </div>
+                      </div>
+                      <!-- END Media Task Name -->
+                      <div class="progress b-r-a-0 m-t-0 m-b-1 h-3">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                      <div class="row m-b-2">
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">12%</h4>
+                          <p class="text-center m-b-0">已完成</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">89</h4>
+                          <p class="text-center m-b-0">
+                            数据更新</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">210</h4>
+                          <p class="text-center m-b-0">
+                            剩余数量</p>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- END Project -->
 
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3">光分纤箱</span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span>4652</span>
-                        </td>
-                        <td class="v-a-m text-warning">
-                          <span>4640</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3">长途光缆（皮长公里）</span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span>143</span>
-                        </td>
-                        <td class="v-a-m text-success">
-                          <span>143</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3">骨干光缆（皮长公里）</span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span>241</span>
-                        </td>
-                        <td class="v-a-m text-success">
-                          <span>241</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3"></span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span></span>
-                        </td>
-                        <td class="v-a-m text-success">
-                          <span></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3"></span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span></span>
-                        </td>
-                        <td class="v-a-m text-success">
-                          <span></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-a-m">
-                          <span class="text-white p-l-3"></span>
-                        </td>
-                        <td class="v-a-m text-white">
-                          <span></span>
-                        </td>
-                        <td class="v-a-m text-success">
-                          <span></span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                    <!-- START Project -->
+                    <li class="list-group-item no-bg">
+                      <!-- START Media Task Name -->
+                      <div class="media m-t-0">
+                        <div class="media-body">
+                          <!-- START ID & Title Task -->
+                          <h5 class="m-b-1">
+                            <a href="/monitor/task-detail">一干光缆巡检</a>
+                          </h5>
+                          <!-- END ID & Title Task -->
+                        </div>
+                        <div class="media-right media-middle">
+                          <span class="label label-success label-outline">正在执行</span>
+                        </div>
+                      </div>
+                      <!-- END Media Task Name -->
+                      <div class="progress b-r-a-0 m-t-0 m-b-1 h-3">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
+                          <span class="sr-only">10% Complete</span>
+                        </div>
+                      </div>
+                      <div class="row m-b-2">
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">10%</h4>
+                          <p class="text-center m-b-0">已完成</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">3</h4>
+                          <p class="text-center m-b-0">
+                            发现安全隐患</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">1234 沟公里</h4>
+                          <p class="text-center m-b-0">
+                            剩余数量</p>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- END Project -->
+
+                    <!-- START Project -->
+                    <li class="list-group-item no-bg">
+                      <!-- START Media Task Name -->
+                      <div class="media m-t-0">
+                        <div class="media-body">
+                          <!-- START ID & Title Task -->
+                          <h5 class="m-b-1">
+                            <a href="/monitor/task-detail">静安区光交箱巡检</a>
+                          </h5>
+                          <!-- END ID & Title Task -->
+                        </div>
+                        <div class="media-right media-middle">
+                          <span class="label label-gray-lighter label-outline">未执行</span>
+                        </div>
+                      </div>
+                      <!-- END Media Task Name -->
+                      <div class="progress b-r-a-0 m-t-0 m-b-1 h-3">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                          <span class="sr-only">0% Complete</span>
+                        </div>
+                      </div>
+                      <div class="row m-b-2">
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">0%</h4>
+                          <p class="text-center m-b-0">已完成</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">0</h4>
+                          <p class="text-center m-b-0">
+                            数据更新</p>
+                        </div>
+                        <div class="col-sm-4 col-xs-4 text-center">
+                          <h4 class="m-t-0 f-w-300 m-b-0">346</h4>
+                          <p class="text-center m-b-0">
+                            剩余数量</p>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- END Project -->
+
+                    <!-- END Project -->
+                    <ul class="list-group">
+                      <li class="list-group-item no-bg text-center">
+                        <a href="../apps/projects-grid.html">查看更多
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+
+                  </div>
+
             </div>
         </div>
       </div>
-
-
-
       <!-- END ROW Table & Chart -->
     </div>
   </div>
